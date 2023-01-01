@@ -1,6 +1,6 @@
 # How this whole thing works
 
-This setup came out of a few years of tinkering with minimal keyboards,
+This setup came out of a few years of tinkering with minimal keyboards, 
 primarily the 34 keyboards; which seems to be my thing. Maybe you can reapply
 some of the principles to other geometries, though.
 
@@ -24,13 +24,14 @@ Before going into the actual layers, there are couple of considerations that one
 needs to familiarise themselves with because they affect the content of those
 layers:
 
-- [Layer switching mechanics](./layer-switching.md)
-- [Home row mods setup](./home-row-mods.md)
+* [Punctuation principles](./punctuation.md)
+* [Layer switching mechanics](./layer-switching.md)
+* [The home row mods setup](./home-row-mods.md)
 
 So, the layers are:
 
-1. `QWERTY` - the default layer that has most of a regular keyboard
-2. `Navigation` - has the navigation buttons and main punctuation
-3. `Editing` - has the programming punctuation and editing shortcuts
-4. `Numbers` - has the numbers and math symbols
+1. [QWERTY](./qwerty.md) - the default layer that has most of a regular keyboard
+2. [Navigation](./navigation.md) - has the navigation buttons and main punctuation
+3. [Editing](./editing.md) - has the programming punctuation and editing shortcuts
+4. [Numbers](./numbers.md) - has the numbers and math symbols
 5. `System` - has the F... buttons and system utils
