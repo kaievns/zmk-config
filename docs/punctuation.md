@@ -18,9 +18,9 @@ Most of the punctuation is split between two layers, the reason for this is that
 ├───────┼───────┼───────┼───────┼───────┤   ├───────┼───────┼───────┼───────┼───────┤
 │       │       │       │       │       │   │  ~    │  <    │  =    │  >    │ '     │
 ├───────┼───────┼───────┼───────┼───────┤   ├───────┼───────┼───────┼───────┼───────┤
-│       │       │       │       │       │   │  &    │  /    │  |    │  \    │ "     │
+│       │       │       │       │       │   │       │  /    │  |    │  \    │ "     │
 ╰───────┴───────┴───────┼───────┼───────┤   ├───────┼───────┼───────┴───────┴───────╯
-                        │       │       │   │       │       │
+                        │       │       │   │  &    │       │
                         ╰───────┴───────╯   ╰───────┴───────╯
 ```
 
@@ -51,7 +51,7 @@ Finally, if you're like me and write a fair bit of documentation, particularly m
 There is yet another dimension to this setup, which groups symbols logically. This helps with remembering where everything is, but also helps with producing less confusion in the brains when it comes to actually using the thing.
 
 * I have already mentioned the paired brackets, that's easy to grasp.
-* The quotation marks, backtick,  `'`, and `"` are in one row
+* The quotation marks, backtick,     `'`, and `"` are in one row
 * All the slashes `/|\` are in one group
 * The `?` and `!` in one mini-group as well
 * The space button turns into the `_` symbol

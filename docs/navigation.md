@@ -16,7 +16,22 @@ Since there are no arrow keys or anything like that on a 40% keyboard, i have a 
 
 A few things to explain here.
 
-Firstly, as you have noticed, i'm a no vim user. I like normal arrow keys, and I want them under the strong three fingers so they'd be natural to use. Additionally, I really like to have the `home` and `end` buttons handy. Which don't work on macOS by default, but you _can_ make them work like windows/linux with a [simple patch](https://discussions.apple.com/thread/251108215). 
+Firstly, as you have noticed, i'm a no vim user. I like normal arrow keys, and I want them under the strong three fingers so they'd be natural to use. Additionally, I really like to have the `home` and `end` buttons handy. Which don't work on macOS by default, but you _can_ make them work like windows/linux with a simple patch.
+
+```sh
+mkdir -p $HOME/Library/KeyBindings
+echo '{
+/* Remap Home / End keys to work same as in windows/linux */
+"\UF729" = "moveToBeginningOfLine:"; /* Home */
+"\UF72B" = "moveToEndOfLine:"; /* End */
+"$\UF729" = "moveToBeginningOfLineAndModifySelection:"; /* Shift + Home */
+"$\UF72B" = "moveToEndOfLineAndModifySelection:"; /* Shift + End */
+"^\UF729" = "moveToBeginningOfDocument:"; /* Ctrl + Home */
+"^\UF72B" = "moveToEndOfDocument:"; /* Ctrl + End */
+"$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:"; /* Shift + Ctrl + Home */
+"$^\UF72B" = "moveToEndOfDocumentAndModifySelection:"; /* Shift + Ctrl + End */
+}' > $HOME/Library/KeyBindings/DefaultKeyBinding.dict
+```
 
 And I also have the page up/down buttons handy, because they're used in editors to move between tabs. I tried to use mouse scroll instead for those two, but I don't know if like that.
 

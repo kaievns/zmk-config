@@ -38,7 +38,7 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                           &lt 3 TAB  &lt 2 ENTER    &lt 1 SPACE &lt 4 BSPC
+                                           &lt 3 TAB  &lt 2 SPACE    &lt 1 ENTER &lt 4 BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -55,7 +55,7 @@
         //│ ?        │  @       │  %       │  $       │          │   │          │          │          │          │          │
           &kp QMARK  &kp AT     &kp PRCNT  &kp DLLR   &none          &none      &none      &none      &none      &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                           &none      &none          &none      &none
+                                           &none      &kp UNDER      &none      &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -63,16 +63,16 @@
         left_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ ESC      │  ALTAB   │  ALTLD   │          │          │   │  ~       │ [        │ -        │ ]        │ `        │
-          &kp ESC   &kp LC(TAB) &kp LC(TILDE) &none   &none          &kp TILDE  &kp LBKT   &kp MINUS  &kp RBKT   &kp GRAVE
+        //│ ESC      │  ALTAB   │  ALTLD   │          │          │   │          │ [        │ -        │ ]        │ `        │
+          &kp ESC   &kp LC(TAB) &kp LC(TILDE) &none   &none          &none      &kp MINUS  &kp RBKT   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ UNDO     │  CUT     │  COPY    │  PASTE   │ REDO     │   │  &       │ <        │ =        │ >        │ '        │
-          &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(LS(Z))  &kp AMPS   &kp LT     &kp EQUAL  &kp GT     &kp SQT
+        //│ UNDO     │  CUT     │  COPY    │  PASTE   │ REDO     │   │  ~       │ <        │ =        │ >        │ '        │
+        HRML( LC(Z),   LC(X),     LC(C),     LC(V))  &kp LC(LS(Z))   &kp TILDE   &kp LT     &kp EQUAL  &kp GT     &kp SQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │ /        │ |        │ \        │ "        │
           &none      &none      &none      &none      &none          &none      &kp FSLH   &kp PIPE   &kp BSLH   &kp DQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                           &none      &none          &kp UNDER  &kp DEL
+                                           &none      &none          &kp AMPS   &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
