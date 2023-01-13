@@ -10,6 +10,24 @@
 #define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &ht LSHFT k3  &ht LCTRL k4
 #define HRMR(k1,k2,k3,k4) &ht RCTRL k1  &ht RSHFT k2  &ht RALT k3  &ht RGUI k4
 
+/**
+ * Halmak keys remapping
+ *
+ * this is necessary due to custom keyboard layouts remapping keys and symbols to different locations
+ * so when you want to use the punctuation symbols independently they need to be rerouted in accordance
+ * with the custom layout. It's ugly but it works and i don't have a smarter idea
+ *
+ * replace those with normal equivalents if you don't need any of those
+ */
+#define HM_LPAR = LS(G)
+#define HM_RPAR = LS(H)
+#define HM_LT = LPAR
+#define HM_GT = RPAR
+#define HM_QMARK = LS(B)
+#define HM_FSLH = B
+#define HM_DOT = H
+#define HM_COMMA = G
+
 / {
     behaviors {
         ht: hold_tap {
@@ -50,10 +68,10 @@
           &kp CARET  &kp LBRC   &kp ASTRK  &kp RBRC   &none          &none      &kp HOME   &kp UP     &kp END    &kp PG_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ !        │  (       │  #       │  )       │          │   │          │ LEFT     │ DOWN     │ RIGHT    │ PAGE DN  │
-        HRML(EXCL,      LPAR,      HASH,      RPAR)   &none          &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN
+        HRML(EXCL,      HM_LPAR,   HASH,      HM_RPAR) &none          &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ ?        │  @       │  %       │  $       │          │   │          │          │          │          │          │
-          &kp QMARK  &kp AT     &kp PRCNT  &kp DLLR   &none          &none      &none      &none      &none      &none
+          &kp HM_QMARK &kp AT   &kp PRCNT  &kp DLLR   &none          &none      &none      &none      &none      &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &kp UNDER      &none      &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -64,13 +82,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ESC      │  ALTAB   │  ALTLD   │          │          │   │          │ [        │ -        │ ]        │ `        │
-          &kp ESC   &kp LC(TAB) &kp LC(TILDE) &none   &none          &none      &kp MINUS  &kp RBKT   &kp GRAVE
+          &kp ESC   &kp LC(TAB) &kp LC(TILDE) &none   &none          &none      &kp LBKT   &kp MINUS  &kp RBKT   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ UNDO     │  CUT     │  COPY    │  PASTE   │ REDO     │   │  ~       │ <        │ =        │ >        │ '        │
-        HRML( LC(Z),   LC(X),     LC(C),     LC(V))  &kp LC(LS(Z))   &kp TILDE   &kp LT     &kp EQUAL  &kp GT     &kp SQT
+        HRML( LC(Z),   LC(X),     LC(C),     LC(V))  &kp LC(LS(Z))   &kp TILDE  &kp HM_LT  &kp EQUAL  &kp HM_GT  &kp SQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │ /        │ |        │ \        │ "        │
-          &none      &none      &none      &none      &none          &none      &kp FSLH   &kp PIPE   &kp BSLH   &kp DQT
+          &none      &none      &none      &none      &none          &none      &kp HM_FSLH &kp PIPE   &kp BSLH   &kp DQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &none          &kp AMPS   &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -81,13 +99,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │  /       │ 4        │ 5        │ 9        │ *        │
-          &none      &none      &none      &none      &none          &kp FSLH  &kp N4     &kp N5     &kp N9     &kp STAR
+          &none      &none      &none      &none      &none          &kp HM_FSLH &kp N4    &kp N5     &kp N9     &kp STAR
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │ .        │ 1        │ 2        │ 3        │ +        │
-          &kp LGUI   &kp LALT   &kp LSHFT  &kp LCTRL  &none          &kp DOT    &kp N1     &kp N2     &kp N3     &kp PLUS
+          &kp LGUI   &kp LALT   &kp LSHFT  &kp LCTRL  &none          &kp HM_DOT &kp N1     &kp N2     &kp N3     &kp PLUS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │ ,        │ 8        │ 6        │ 7        │ -        │
-          &none      &none      &none      &none      &none          &kp COMMA  &kp N8     &kp N6     &kp N7     &kp MINUS
+          &none      &none      &none      &none      &none          &kp HM_COMMA &kp N8   &kp N6     &kp N7     &kp MINUS
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &none          &kp EQUAL  &kp N0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
