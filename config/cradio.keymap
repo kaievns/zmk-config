@@ -19,14 +19,14 @@
  *
  * replace those with normal equivalents if you don't need any of those
  */
-#define HM_LPAR = LS(G)
-#define HM_RPAR = LS(H)
-#define HM_LT = LPAR
-#define HM_GT = RPAR
-#define HM_QMARK = LS(B)
-#define HM_FSLH = B
-#define HM_DOT = H
-#define HM_COMMA = G
+#define HM_LPAR LS(G)
+#define HM_RPAR LS(H)
+#define HM_LT LPAR
+#define HM_GT RPAR
+#define HM_QMARK LS(B)
+#define HM_FSLH B
+#define HM_DOT H
+#define HM_COMMA G
 
 / {
     behaviors {
