@@ -10,23 +10,13 @@
 #define HRML(k1,k2,k3,k4) &ht LGUI k1  &ht LALT k2  &qht LSHFT k3  &ht LCTRL k4
 #define HRMR(k1,k2,k3,k4) &ht RCTRL k1  &qht RSHFT k2  &ht RALT k3  &ht RGUI k4
 
-/**
- * Halmak keys remapping
- *
- * this is necessary due to custom keyboard layouts remapping keys and symbols to different locations
- * so when you want to use the punctuation symbols independently they need to be rerouted in accordance
- * with the custom layout. It's ugly but it works and i don't have a smarter idea
- *
- * replace those with normal equivalents if you don't need any of those
- */
-#define HM_LPAR LS(G)
-#define HM_RPAR LS(H)
-#define HM_LT LPAR
-#define HM_GT RPAR
-#define HM_QMARK LS(B)
-#define HM_FSLH B
-#define HM_DOT H
-#define HM_COMMA G
+#define QWERTY 0
+#define HALMAK 1
+#define COLMAK 2
+#define NAVI   3
+#define EDIT   4
+#define NUMS   5
+#define FUNC   6
 
 / {
     behaviors {
@@ -54,7 +44,7 @@
 
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+        qwerty_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  Q       │  W       │  E       │  R       │  T       │   │  Y       │  U       │  I       │  O       │  P       │
@@ -66,39 +56,73 @@
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                           &lt 3 TAB  &lt 2 SPACE    &lt 1 ENTER &lt 4 BSPC
+                                       &lt NUMS TAB  &lt EDIT SPACE &lt NAVI ENTER &lt FUNC BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
 
-        right_layer {
+        halmak_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  W       │  L       │  R       │  B       │  Z       │   │  ;       │  U       │  D       │  O       │  J       │
+            &kp W      &kp L      &kp R      &kp B      &kp Z          &kp SEMI   &kp U      &kp D      &kp O      &kp J
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  S       │  H       │  N       │  T       │  ,       │   │  .       │  A       │  E       │  L       │  I       │
+            HRML(S,        H,         N,         T)     &kp COMMA      &kp DOT   HRMR(A,        E,         L,        I)
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  F       │  M       │  V       │  C       │  /       │   │  G       │  P       │  X       │  K       │  Y       │
+            &kp F      &kp M      &kp V      &kp C      &kp FSLH          &kp G      &kp P   &kp X     &kp K       &kp Y
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                       &lt NUMS TAB  &lt EDIT SPACE &lt NAVI ENTER &lt FUNC BSPC
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        colemak_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │   U      │  Y       │  ;       │
+            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp SEMI
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │ O        │
+            HRML(A,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?      │
+            &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp FSLH
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                       &lt NUMS TAB  &lt EDIT SPACE &lt NAVI ENTER &lt FUNC BSPC
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        navigation_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ^        │  {       │  *       │  }       │          │   │          │ HOME     │ UP       │ END      │ PAGE UP  │
           &kp CARET  &kp LBRC   &kp ASTRK  &kp RBRC   &none          &none      &kp HOME   &kp UP     &kp END    &kp PG_UP
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ !        │  (       │  #       │  )       │          │   │          │ LEFT     │ DOWN     │ RIGHT    │ PAGE DN  │
-        HRML(EXCL,      HM_LPAR,   HASH,      HM_RPAR) &none          &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN
+        HRML(EXCL,      LPAR,     HASH,       RPAR)   &none          &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_DN
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ ?        │  @       │  %       │  $       │          │   │          │          │          │          │          │
-          &kp HM_QMARK &kp AT   &kp PRCNT  &kp DLLR   &none          &none      &none      &none      &none      &none
+          &kp QMARK  &kp AT     &kp PRCNT  &kp DLLR   &none          &none      &none      &none      &none      &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &kp UNDER      &none      &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
 
-        left_layer {
+        editing_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ESC      │  ALTAB   │  ALTLD   │          │          │   │          │ [        │ -        │ ]        │ `        │
           &kp ESC   &kp LC(TAB) &kp LC(TILDE) &none   &none          &none      &kp LBKT   &kp MINUS  &kp RBKT   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ UNDO     │  CUT     │  COPY    │  PASTE   │ REDO     │   │  ~       │ <        │ =        │ >        │ '        │
-        HRML( LC(Z),   LC(X),     LC(C),     LC(V))  &kp LC(LS(Z))   &kp TILDE  &kp HM_LT  &kp EQUAL  &kp HM_GT  &kp SQT
+        HRML( LC(Z),   LC(X),     LC(C),     LC(V))  &kp LC(LS(Z))   &kp TILDE  &kp LT     &kp EQUAL  &kp GT  &kp SQT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │ /        │ |        │ \        │ "        │
-          &none      &none      &none      &none      &none          &none      &kp HM_FSLH &kp PIPE   &kp BSLH   &kp DQT
+          &none      &none      &none      &none      &none          &none      &kp FSLH   &kp PIPE   &kp BSLH   &kp DQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &none          &kp AMPS   &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -109,13 +133,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │  /       │ 4        │ 5        │ 9        │ *        │
-          &none      &none      &none      &none      &none          &kp HM_FSLH &kp N4    &kp N5     &kp N9     &kp STAR
+          &none      &none      &none      &none      &none          &kp FSLH &kp N4    &kp N5     &kp N9     &kp STAR
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │ .        │ 1        │ 2        │ 3        │ +        │
-          &kp LGUI   &kp LALT   &kp LSHFT  &kp LCTRL  &none          &kp HM_DOT &kp N1     &kp N2     &kp N3     &kp PLUS
+          &kp LGUI   &kp LALT   &kp LSHFT  &kp LCTRL  &none          &kp DOT &kp N1     &kp N2     &kp N3     &kp PLUS
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │ ,        │ 8        │ 6        │ 7        │ -        │
-          &none      &none      &kp PRCNT  &kp DLLR   &none          &kp HM_COMMA &kp N8   &kp N6     &kp N7     &kp MINUS
+          &none      &none      &kp PRCNT  &kp DLLR   &none          &kp COMMA &kp N8   &kp N6     &kp N7     &kp MINUS
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &none          &kp EQUAL  &kp N0
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -126,13 +150,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &none      &none      &none      &none      &bt BT_SEL 0   &none      &kp F4     &kp F5     &kp F9     &kp F10
+          &to HALMAK &none      &none      &none      &bt BT_SEL 0   &none      &kp F4     &kp F5     &kp F9     &kp F10
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &none      &none      &none      &none      &bt BT_SEL 1   &none      &kp F1     &kp F2     &kp F3     &kp F11
+          &to QWERTY &none      &none      &none      &bt BT_SEL 1   &none      &kp F1     &kp F2     &kp F3     &kp F11
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &none      &none      &none      &none      &bt BT_SEL 2   &none      &kp F8     &kp F6     &kp F7     &kp F12
+          &to COLMAK &none      &none      &none      &bt BT_SEL 2   &none      &kp F8     &kp F6     &kp F7     &kp F12
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &none          &none      &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
