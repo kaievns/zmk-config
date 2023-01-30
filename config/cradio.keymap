@@ -64,11 +64,11 @@
         halmak_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  W       │  L       │  R       │  B       │  Z       │   │  ;       │  U       │  D       │  O       │  J       │
-            &kp W      &kp L      &kp R      &kp B      &kp Z          &kp SEMI   &kp U      &kp D      &kp O      &kp J
+        //│  W       │  L       │  R       │  B       │  Z       │   │  ;       │  Q       │  U       │  D       │  J       │
+            &kp W      &kp L      &kp R      &kp B      &kp Z          &kp SEMI   &kp Q      &kp U      &kp D      &kp J
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  S       │  H       │  N       │  T       │  ,       │   │  .       │  A       │  E       │  L       │  I       │
-            HRML(S,        H,         N,         T)     &kp COMMA      &kp DOT   HRMR(A,        E,         L,        I)
+        //│  S       │  H       │  N       │  T       │  ,       │   │  .       │  A       │  E       │  O       │  I       │
+            HRML(S,        H,         N,         T)     &kp COMMA      &kp DOT   HRMR(A,        E,         O,        I)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  F       │  M       │  V       │  C       │  /       │   │  G       │  P       │  X       │  K       │  Y       │
             &kp F      &kp M      &kp V      &kp C      &kp FSLH          &kp G      &kp P   &kp X     &kp K       &kp Y
