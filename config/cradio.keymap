@@ -39,8 +39,8 @@ name: name##_macro {                           \
         QWERTY_MOD_MACRO(qalt, LALT)
         QWERTY_MOD_MACRO(qgui, LGUI)
         QWERTY_MOD_MACRO(qctl, LCTRL)
-    }
-}
+    };
+};
 
 #define HOME_ROW_MOD_TAP(name, macro)      \
 name: name##_mod_tap {                     \
@@ -69,8 +69,8 @@ name: name##_mod_tap {                     \
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
-    }
-}
+    };
+};
 
 #define HRML(k1,k2,k3,k4) &ht_gui k1  &ht_alt k2  &qht LSHFT k3  &ht_ctl k4
 #define HRMR(k1,k2,k3,k4) &ht_ctl k1  &qht RSHFT k2  &ht_alt k3  &ht_gui k4
