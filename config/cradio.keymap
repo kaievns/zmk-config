@@ -59,7 +59,7 @@ name: name##_mod_tap {                     \
         HOME_ROW_MOD_TAP(ht_alt, &qalt)
         HOME_ROW_MOD_TAP(ht_gui, &qgui)
         HOME_ROW_MOD_TAP(ht_ctl, &qctl)
-        qht: quick_hold_tap {
+        sht: quick_hold_tap {
             label = "quick_hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -72,8 +72,8 @@ name: name##_mod_tap {                     \
     };
 };
 
-#define HRML(k1,k2,k3,k4) &ht_gui k1  &ht_alt k2  &qht LSHFT k3  &ht_ctl k4
-#define HRMR(k1,k2,k3,k4) &ht_ctl k1  &qht RSHFT k2  &ht_alt k3  &ht_gui k4
+#define HRML(k1,k2,k3,k4) &ht_gui 0 k1  &ht_alt 0 k2  &sht LSHFT k3  &ht_ctl 0 k4
+#define HRMR(k1,k2,k3,k4) &ht_ctl 0 k1  &sht RSHFT k2  &ht_alt 0 k3  &ht_gui 0 k4
 
 
 / {
