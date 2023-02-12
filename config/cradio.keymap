@@ -16,7 +16,7 @@
 
 #define HALMAK 0
 #define QWERTY 1
-#define COLMAK 2
+#define GAMPAD 2
 #define NAVI   3
 #define EDIT   4
 #define NUMS   5
@@ -113,19 +113,19 @@ name: name##_mod_tap {                     \
             >;
         };
 
-        colemak_layer {
+        gamepad_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │   U      │  Y       │  ;       │
-            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J      &kp L      &kp U      &kp Y      &kp SEMI
+        //│          │          │          │          │          │   │          │          │          │          │          │
+          &kp TAB    &kp Q      &kp W      &kp E      &kp G          &none      &kp N4    &kp N5     &kp N9     &kp STAR
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │ O        │
-            HRML(A,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
+        //│          │          │          │          │          │   │          │          │          │          │          │
+          &kp LSHFT  &kp A      &kp S      &kp D      &kp F          &none      &kp N1     &kp N2     &kp N3     &kp PLUS 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ / ?      │
-            &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp FSLH
+        //│          │          │          │          │          │   │          │  H       │ , <      │ . >      │ / ?      │
+          &kp LCTRL  &kp Z      &kp X      &kp C      &kp V          &kp N      &kp N8   &kp N6     &kp N7     &kp MINUS
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &lt NUMS TAB  &lt EDIT SPACE &lt NAVI ENTER &lt FUNC BSPC
+                                           &kp R      &kp SPACE      &lt NAVI ENTER &lt FUNC BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -188,10 +188,10 @@ name: name##_mod_tap {                     \
           &to QWERTY &none      &none      &none      &bt BT_SEL 0   &none      &kp F4     &kp F5     &kp F9     &kp F10
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &to HALMAK &none      &none      &none      &bt BT_SEL 1   &none      &kp F1     &kp F2     &kp F3     &kp F11
+          &to HALMAK &none      &kp LSHFT  &none     &bt BT_SEL 1   &none      &kp F1     &kp F2     &kp F3     &kp F11
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &to COLMAK &none      &none      &none      &bt BT_SEL 2   &none      &kp F8     &kp F6     &kp F7     &kp F12
+          &to GAMPAD &none      &none      &none      &bt BT_SEL 2   &none      &kp F8     &kp F6     &kp F7     &kp F12
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &none      &none          &none      &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
