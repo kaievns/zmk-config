@@ -21,6 +21,7 @@
 #define EDIT   4
 #define NUMS   5
 #define FUNC   6
+#define ALTAB  7
 
 #define QWERTY_MOD_MACRO(name, mod)            \
 name: name##_macro {                           \
@@ -39,6 +40,31 @@ name: name##_macro {                           \
         QWERTY_MOD_MACRO(qalt, LALT)
         QWERTY_MOD_MACRO(qgui, LGUI)
         QWERTY_MOD_MACRO(qctl, LCTRL)
+
+        altab: alt_tab_enter {
+            label = "alt_tab_enter";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <20>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&kp TAB &to ALTAB>;
+        };
+        altab_x: alt_tab_leave {
+            label = "alt_tab_leave";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <20>;
+            bindings =
+                <&macro_release>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&to 0>;
+        };
     };
 };
 
@@ -117,13 +143,13 @@ name: name##_mod_tap {                     \
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-          &kp TAB    &kp Q      &kp W      &kp E      &kp G          &none      &kp N4    &kp N5     &kp N9     &kp STAR
+          &kp TAB    &kp Q      &kp W      &kp E      &kp G          &none      &kp N4     &kp N5     &kp N9     &kp STAR
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
           &kp LSHFT  &kp A      &kp S      &kp D      &kp F          &none      &kp N1     &kp N2     &kp N3     &kp PLUS 
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │          │          │   │          │  H       │ , <      │ . >      │ / ?      │
-          &kp LCTRL  &kp Z      &kp X      &kp C      &kp V          &kp N      &kp N8   &kp N6     &kp N7     &kp MINUS
+        //│          │          │          │          │          │   │          │          │          │          │          │
+          &kp LCTRL  &kp Z      &kp X      &kp C      &kp V          &kp N      &kp N8     &kp N6     &kp N7     &kp MINUS
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &kp R      &kp SPACE      &lt NAVI ENTER &lt FUNC BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -151,7 +177,7 @@ name: name##_mod_tap {                     \
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ ESC      │  ALTAB   │  ALTLD   │          │          │   │          │ [        │ -        │ ]        │ `        │
-          &kp ESC   &kp LC(TAB) &kp LC(TILDE) &none   &none          &none      &kp LBKT   &kp MINUS  &kp RBKT   &kp GRAVE
+          &kp ESC    &altab     &kp LC(TILDE) &none   &none          &none      &kp LBKT   &kp MINUS  &kp RBKT   &kp GRAVE
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ UNDO     │  CUT     │  COPY    │  PASTE   │ REDO     │   │  ~       │ <        │ =        │ >        │ '        │
         HRML( LC(Z),   LC(X),     LC(C),     LC(V))  &kp LC(LS(Z))   &kp TILDE  &kp LT     &kp EQUAL  &kp GT  &kp SQT
@@ -197,5 +223,22 @@ name: name##_mod_tap {                     \
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
+
+        altab_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│          │          │          │          │          │   │          │          │          │          │          │
+          &altab_x   &kp TAB    &altab_x   &altab_x   &altab_x       &altab_x   &altab_x   &altab_x   &altab_x   &altab_x
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │          │          │   │          │          │          │          │          │
+          &altab_x   &altab_x   &altab_x   &altab_x   &altab_x       &altab_x   &altab_x   &altab_x   &altab_x   &altab_x
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │          │          │   │          │          │          │          │          │
+          &altab_x   &altab_x   &altab_x   &altab_x   &altab_x       &altab_x   &altab_x   &altab_x   &altab_x   &altab_x
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                           &altab_x   &altab_x       &altab_x   &altab_x
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        }
     };
 };
