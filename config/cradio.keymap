@@ -48,7 +48,7 @@ name: name##_macro {                           \
             wait-ms = <10>;
             tap-ms = <20>;
             bindings =
-                <&macro_press &kp LALT>,
+                <&macro_press &kp LCTRL>,
                 <&macro_tap &kp TAB &to ALTAB>;
         };
         altab_x: alt_tab_leave {
@@ -58,7 +58,7 @@ name: name##_macro {                           \
             wait-ms = <10>;
             tap-ms = <20>;
             bindings =
-                <&macro_release &kp LALT>,
+                <&macro_release &kp LCTRL>,
                 <&to 0>;
         };
     };
