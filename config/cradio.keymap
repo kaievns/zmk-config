@@ -45,7 +45,7 @@ name: name##_macro {                           \
         edit_altab: edit_altab_layer_tap {
             label = "edit_layer_with_altab_support";
 	        compatible = "zmk,behavior-macro";
-	        #binding-cells = <0>;
+	        #binding-cells = <1>;
 	        wait-ms = <0>;
             bindings
                 = <&macro_press &to EDIT>
