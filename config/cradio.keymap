@@ -106,8 +106,8 @@ name: name##_mod_tap {                     \
         };
         edit_tap: edit_layer_tap {
             label = "edit_layer_with_altab";
-            #binding-cells = <1>;
-            bindings = <&edit_altab>, <&kp>;
+            #binding-cells = <2>;
+            bindings = <&edit_altab>, <&kp SPACE>;
         };
     };
 };
