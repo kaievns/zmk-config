@@ -41,6 +41,19 @@ name: name##_macro {                           \
         QWERTY_MOD_MACRO(qgui, LGUI)
         QWERTY_MOD_MACRO(qctl, LCTRL)
 
+        // the edit layer altab
+        edit_altab: edit_altab_layer_tap {
+            label = "edit layer with altab support;
+	        compatible = "zmk,behavior-macro";
+	        #binding-cells = <0>;
+	        wait-ms = <0>;
+            bindings
+                = <&macro_press &to EDIT>
+                , <&macro_pause_for_release>
+                , <&macro_release &kp LCTRL>
+                , <&macro_tap &to 0>;
+        };
+
         altab: alt_tab_enter {
             label = "alt_tab_enter";
             compatible = "zmk,behavior-macro";
@@ -91,6 +104,11 @@ name: name##_mod_tap {                     \
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+        edit_tap: edit_layer_tap {
+            label = "edit_layer_with_altab";
+            #binding-cells = <1>;
+            bindings = <&edit_altab>, <&kp>
+        }
     };
 };
 
@@ -113,7 +131,7 @@ name: name##_mod_tap {                     \
         //│  F       │  M       │  V       │  C       │  /       │   │  G       │  P       │  X       │  K       │  Y       │
             &kp F      &kp M      &kp V      &kp C      &kp FSLH          &kp G      &kp P   &kp X     &kp K       &kp Y
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &lt NUMS TAB  &lt EDIT SPACE &lt NAVI ENTER &lt FUNC BSPC
+                                       &lt NUMS TAB  &edit_tap SPACE &lt NAVI ENTER &lt FUNC BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -130,7 +148,7 @@ name: name##_mod_tap {                     \
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &lt NUMS TAB  &lt EDIT SPACE &lt NAVI ENTER &lt FUNC BSPC
+                                       &lt NUMS TAB  &edit_tap SPACE &lt NAVI ENTER &lt FUNC BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
