@@ -43,7 +43,7 @@ name: name##_macro {                           \
 
         // the edit layer altab
         edit_altab: edit_altab_layer_tap {
-            label = "edit layer with altab support;
+            label = "edit_layer_with_altab_support";
 	        compatible = "zmk,behavior-macro";
 	        #binding-cells = <0>;
 	        wait-ms = <0>;
