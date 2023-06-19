@@ -120,11 +120,13 @@ name: name##_mod_tap {                     \
         };
         eth: edit_layer_tap_halmak {
             label = "edit_layer_with_altab_halmak";
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&edit_altab_halmak>, <&kp>;
         };
         etq: edit_layer_tap_qwerty {
             label = "edit_layer_with_altab_qwerty";
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             bindings = <&edit_altab_qwerty>, <&kp>;
         };
