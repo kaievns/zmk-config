@@ -105,6 +105,7 @@ name: name##_mod_tap {                     \
         HOME_ROW_MOD_TAP(ht_gui, &qgui)
         HOME_ROW_MOD_TAP(ht_ctl, &qctl)
         sht: quick_hold_tap {
+            label = "quick_hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -114,10 +115,12 @@ name: name##_mod_tap {                     \
             bindings = <&kp>, <&kp>;
         };
         eth: edit_layer_tap_halmak {
+            label = "edit_layer_with_altab_halmak";
             #binding-cells = <2>;
             bindings = <&edit_altab_halmak>, <&kp>;
         };
         etq: edit_layer_tap_qwerty {
+            label = "edit_layer_with_altab_qwerty";
             #binding-cells = <2>;
             bindings = <&edit_altab_qwerty>, <&kp>;
         };
