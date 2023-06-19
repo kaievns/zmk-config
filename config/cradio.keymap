@@ -43,7 +43,6 @@ name: name##_macro {                           \
 
         // the edit layer altab
         edit_altab_halmak: edit_altab_layer_tap_halmak {
-            label = "edit_altab_layer_tap_halmak";
             compatible = "zmk,behavior-macro";
 	        #binding-cells = <0>;
 	        wait-ms = <0>;
@@ -56,7 +55,6 @@ name: name##_macro {                           \
         };
 
         edit_altab_qwerty: edit_altab_layer_tap_qwerty {
-            label = "edit_altab_layer_tap_qwerty";
             compatible = "zmk,behavior-macro";
 	        #binding-cells = <0>;
 	        wait-ms = <0>;
@@ -69,7 +67,6 @@ name: name##_macro {                           \
         };
 
         altab: alt_tab_enter {
-            label = "alt_tab_enter";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -79,7 +76,6 @@ name: name##_macro {                           \
                 <&macro_tap &kp TAB &to ALTAB>;
         };
         altab_x: alt_tab_leave {
-            label = "alt_tab_leave";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
@@ -109,7 +105,6 @@ name: name##_mod_tap {                     \
         HOME_ROW_MOD_TAP(ht_gui, &qgui)
         HOME_ROW_MOD_TAP(ht_ctl, &qctl)
         sht: quick_hold_tap {
-            label = "quick_hold_tap";
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -119,12 +114,10 @@ name: name##_mod_tap {                     \
             bindings = <&kp>, <&kp>;
         };
         eth: edit_layer_tap_halmak {
-            label = "edit_layer_with_altab";
             #binding-cells = <2>;
             bindings = <&edit_altab_halmak>, <&kp>;
         };
         etq: edit_layer_tap_qwerty {
-            label = "edit_layer_with_altab";
             #binding-cells = <2>;
             bindings = <&edit_altab_qwerty>, <&kp>;
         };
