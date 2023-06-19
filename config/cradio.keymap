@@ -156,7 +156,7 @@ name: name##_mod_tap {                     \
         //│  F       │  M       │  V       │  C       │  /       │   │  G       │  P       │  X       │  K       │  Y       │
             &kp F      &kp M      &kp V      &kp C      &kp FSLH          &kp G      &kp P   &kp X     &kp K       &kp Y
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &lt NUMS TAB  &eth 0 SPACE  &lt NAVI ENTER &lt FUNC BSPC
+                                       &lt NUMS TAB  &eth EDIT SPACE  &lt NAVI ENTER &lt FUNC BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -173,7 +173,7 @@ name: name##_mod_tap {                     \
         //│  Z       │  X       │  C       │  V       │  B       │   │  N       │  M       │ , <      │ . >      │ / ?      │
             &kp Z      &kp X      &kp C      &kp V      &kp B          &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                       &lt NUMS TAB  &etq 0 SPACE  &lt NAVI ENTER &lt FUNC BSPC
+                                       &lt NUMS TAB  &etq EDIT SPACE  &lt NAVI ENTER &lt FUNC BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
