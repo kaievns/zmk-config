@@ -53,10 +53,10 @@ name: name##_macro {                           \
                 , <&macro_pause_for_release>
                 , <&macro_release &kp LCTRL>
                 , <&macro_tap &to HALMAK>;
-        }
+        };
 
-        edit_altab_qwerty: edit_altab_layer_tap_qweedit_altab_qwerty {
-            label = "edit_altab_layer_tap_qweedit_altab_qwerty";
+        edit_altab_qwerty: edit_altab_layer_tap_qwerty {
+            label = "edit_altab_layer_tap_qwerty";
             compatible = "zmk,behavior-macro";
 	        #binding-cells = <0>;
 	        wait-ms = <0>;
@@ -66,7 +66,7 @@ name: name##_macro {                           \
                 , <&macro_pause_for_release>
                 , <&macro_release &kp LCTRL>
                 , <&macro_tap &to QWERTY>;
-        }
+        };
 
         altab: alt_tab_enter {
             label = "alt_tab_enter";
